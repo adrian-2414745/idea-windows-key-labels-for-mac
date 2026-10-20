@@ -1,0 +1,16 @@
+Services:
+VendorID ProductID LocationID         UsagePage Usage RegistryID  Transport Class                         Product                            UserClass               Built-In 
+0x46d    0xc339    0x14110000         1         6     0x1000007eb USB       AppleUserHIDEventService      Pro Gaming Keyboard                AppleUserHIDEventDriver 0        
+0x5ac    0x340     0xffffffff80500000 1         6     0x10000b172 USB       AppleHIDKeyboardEventDriverV2 Apple Internal Keyboard / Trackpad (null)                  1        
+0x46d    0xc339    0x14110000         1         6     0x1000007c6 USB       AppleUserHIDEventService      Pro Gaming Keyboard                AppleUserHIDEventDriver 0        
+0x5ac    0x8600    0x0                1         6     0x10000b18a Virtual   AppleUserHIDEventService      TouchBarUserDevice                 AppleUserHIDEventDriver 1        
+0x46d    0xc07d    0x14120000         1         6     0x1000007de USB       AppleUserHIDEventService      Gaming Mouse G502                  AppleUserHIDEventDriver 0        
+
+Devices:
+VendorID ProductID LocationID         UsagePage Usage RegistryID  Transport Class              Product                            UserClass                 Built-In 
+0x5ac    0x340     0xffffffff80500000 1         6     0x10000b14e USB       AppleUserHIDDevice Apple Internal Keyboard / Trackpad AppleUserUSBHostHIDDevice 1        
+0x46d    0xc339    0x14110000         1         6     0x100000719 USB       AppleUserHIDDevice Pro Gaming Keyboard                AppleUserUSBHostHIDDevice 0        
+0x46d    0xc339    0x14110000         1         6     0x1000006d8 USB       AppleUserHIDDevice Pro Gaming Keyboard                AppleUserUSBHostHIDDevice 0        
+0x5ac    0x8600    0x0                1         6     0x10000b185 Virtual   IOHIDUserDevice    TouchBarUserDevice                 (null)                    1        
+0x46d    0xc07d    0x14120000         1         6     0x100000734 USB       AppleUserHIDDevice Gaming Mouse G502                  AppleUserUSBHostHIDDevice 0        
+

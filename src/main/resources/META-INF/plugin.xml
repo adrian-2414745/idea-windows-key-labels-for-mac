@@ -7,6 +7,7 @@
   <description><![CDATA[
     On macOS, shows shortcut modifiers with Windows keyboard names (Ctrl, Win, Alt, Shift)
     instead of the macOS symbols ⌘ ⌃ ⌥ ⇧. For Windows keyboards connected to a Mac.
+    Detects the connected keyboard and its macOS modifier key remapping; manual labels are the fallback.
     Labels are set in <b>Settings | Appearance &amp; Behavior | Windows Shortcut Symbols</b>.
   ]]></description>
 
@@ -14,6 +15,8 @@
 
   <applicationListeners>
     <listener class="com.adriansalajan.winsymbols.WinSymbolsStartup" topic="com.intellij.ide.AppLifecycleListener"/>
+    <listener class="com.adriansalajan.winsymbols.WinSymbolsActivation"
+              topic="com.intellij.openapi.application.ApplicationActivationListener"/>
   </applicationListeners>
 
   <extensions defaultExtensionNs="com.intellij">

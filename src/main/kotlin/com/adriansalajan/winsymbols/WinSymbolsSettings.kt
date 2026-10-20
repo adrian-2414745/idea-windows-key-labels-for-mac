@@ -14,6 +14,8 @@ class WinSymbolsSettings : PersistentStateComponent<WinSymbolsSettings.Options> 
 
   class Options {
     var enabled: Boolean = true
+    /** Take labels from the connected keyboard; the manual labels are the fallback. */
+    var autoDetect: Boolean = true
     var command: String = ModifierLabels.SWAPPED.command
     var control: String = ModifierLabels.SWAPPED.control
     var option: String = ModifierLabels.SWAPPED.option
@@ -32,6 +34,13 @@ class WinSymbolsSettings : PersistentStateComponent<WinSymbolsSettings.Options> 
   fun activeLabels(): ModifierLabels? {
     val o = options
     if (!o.enabled) return null
+    if (o.autoDetect) {
+      when (val detection = ApplicationManager.getApplication().serviceIfCreated<KeyboardDetector>()?.detection) {
+        is Detection.Detected -> return detection.labels
+        Detection.MacKeyboardOnly -> return null
+        is Detection.Undecided, null -> {}
+      }
+    }
     return ModifierLabels(command = o.command, control = o.control, option = o.option, shift = o.shift)
   }
 
