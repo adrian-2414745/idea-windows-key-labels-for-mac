@@ -1,0 +1,26 @@
+<!-- require-restart: the text context must be swapped before shortcut code is JIT-compiled -->
+<idea-plugin require-restart="true">
+  <id>com.adriansalajan.winshortcutsymbols</id>
+  <name>Windows Shortcut Symbols</name>
+  <vendor>Adrian Salajan</vendor>
+
+  <description><![CDATA[
+    On macOS, shows shortcut modifiers with Windows keyboard names (Ctrl, Win, Alt, Shift)
+    instead of the macOS symbols ⌘ ⌃ ⌥ ⇧. For Windows keyboards connected to a Mac.
+    Labels are set in <b>Settings | Appearance &amp; Behavior | Windows Shortcut Symbols</b>.
+  ]]></description>
+
+  <depends>com.intellij.modules.platform</depends>
+
+  <applicationListeners>
+    <listener class="com.adriansalajan.winsymbols.WinSymbolsStartup" topic="com.intellij.ide.AppLifecycleListener"/>
+  </applicationListeners>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <applicationConfigurable
+        parentId="appearance"
+        id="com.adriansalajan.winshortcutsymbols"
+        displayName="Windows Shortcut Symbols"
+        instance="com.adriansalajan.winsymbols.WinSymbolsConfigurable"/>
+  </extensions>
+</idea-plugin>
