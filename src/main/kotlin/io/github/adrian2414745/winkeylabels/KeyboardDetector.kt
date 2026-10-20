@@ -1,4 +1,4 @@
-package com.adriansalajan.winsymbols
+package io.github.adrian2414745.winkeylabels
 
 import com.intellij.execution.configurations.GeneralCommandLine
 import com.intellij.execution.util.ExecUtil
@@ -19,6 +19,10 @@ class KeyboardDetector(private val scope: CoroutineScope) {
   @Volatile
   private var lastStart = 0L
 
+  /** Replaced in tests. */
+  @Volatile
+  internal var source: () -> Detection = ::detect
+
   /** Null until the first detection finishes. */
   @Volatile
   var detection: Detection? = null
@@ -30,7 +34,7 @@ class KeyboardDetector(private val scope: CoroutineScope) {
     if (!force && now - lastStart < THROTTLE_MS) return null
     lastStart = now
     return scope.launch(Dispatchers.IO) {
-      mutex.withLock { detection = detect() }
+      mutex.withLock { detection = source() }
     }
   }
 

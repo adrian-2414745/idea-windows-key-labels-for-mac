@@ -1,4 +1,4 @@
-rootProject.name = "windows-shortcut-symbols"
+rootProject.name = "windows-key-labels-for-mac"
 
 pluginManagement {
     plugins {

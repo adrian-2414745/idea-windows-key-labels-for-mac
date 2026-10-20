@@ -1,4 +1,4 @@
-package com.adriansalajan.winsymbols
+package io.github.adrian2414745.winkeylabels
 
 import org.w3c.dom.Element
 import org.xml.sax.InputSource

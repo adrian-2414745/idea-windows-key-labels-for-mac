@@ -1,4 +1,4 @@
-package com.adriansalajan.winsymbols
+package io.github.adrian2414745.winkeylabels
 
 import java.awt.event.InputEvent
 import java.awt.event.KeyEvent
@@ -17,6 +17,9 @@ data class ModifierLabels(
 
     /** Windows keyboard without macOS modifier remapping (physical Win sends ⌘). */
     val STANDARD = ModifierLabels(command = "Win", control = "Ctrl", option = "Alt", shift = "Shift")
+
+    /** What macOS shows, i.e. the plugin is off. */
+    val MAC_SYMBOLS = ModifierLabels(command = "⌘", control = "⌃", option = "⌥", shift = "⇧")
   }
 }
 

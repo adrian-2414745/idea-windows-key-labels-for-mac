@@ -1,29 +1,29 @@
 <!-- require-restart: the text context must be swapped before shortcut code is JIT-compiled -->
 <idea-plugin require-restart="true">
-  <id>com.adriansalajan.winshortcutsymbols</id>
-  <name>Windows Shortcut Symbols</name>
+  <id>io.github.adrian2414745.winkeylabels</id>
+  <name>Windows Key Labels for Mac</name>
   <vendor>Adrian Salajan</vendor>
 
   <description><![CDATA[
     On macOS, shows shortcut modifiers with Windows keyboard names (Ctrl, Win, Alt, Shift)
     instead of the macOS symbols ⌘ ⌃ ⌥ ⇧. For Windows keyboards connected to a Mac.
     Detects the connected keyboard and its macOS modifier key remapping; manual labels are the fallback.
-    Labels are set in <b>Settings | Appearance &amp; Behavior | Windows Shortcut Symbols</b>.
+    Labels are set in <b>Settings | Appearance &amp; Behavior | Windows Key Labels for Mac</b>.
   ]]></description>
 
   <depends>com.intellij.modules.platform</depends>
 
   <applicationListeners>
-    <listener class="com.adriansalajan.winsymbols.WinSymbolsStartup" topic="com.intellij.ide.AppLifecycleListener"/>
-    <listener class="com.adriansalajan.winsymbols.WinSymbolsActivation"
+    <listener class="io.github.adrian2414745.winkeylabels.WinSymbolsStartup" topic="com.intellij.ide.AppLifecycleListener"/>
+    <listener class="io.github.adrian2414745.winkeylabels.WinSymbolsActivation"
               topic="com.intellij.openapi.application.ApplicationActivationListener"/>
   </applicationListeners>
 
   <extensions defaultExtensionNs="com.intellij">
     <applicationConfigurable
         parentId="appearance"
-        id="com.adriansalajan.winshortcutsymbols"
-        displayName="Windows Shortcut Symbols"
-        instance="com.adriansalajan.winsymbols.WinSymbolsConfigurable"/>
+        id="io.github.adrian2414745.winkeylabels"
+        displayName="Windows Key Labels for Mac"
+        instance="io.github.adrian2414745.winkeylabels.WinSymbolsConfigurable"/>
   </extensions>
 </idea-plugin>

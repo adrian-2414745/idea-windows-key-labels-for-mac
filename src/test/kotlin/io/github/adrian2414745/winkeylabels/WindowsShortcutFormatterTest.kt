@@ -1,4 +1,4 @@
-package com.adriansalajan.winsymbols
+package io.github.adrian2414745.winkeylabels
 
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNull

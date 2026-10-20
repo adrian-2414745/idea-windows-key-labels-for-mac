@@ -1,4 +1,4 @@
-package com.adriansalajan.winsymbols
+package io.github.adrian2414745.winkeylabels
 
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.components.PersistentStateComponent
@@ -9,7 +9,7 @@ import com.intellij.openapi.components.serviceIfCreated
 import com.intellij.openapi.util.SystemInfo
 
 @Service(Service.Level.APP)
-@State(name = "WindowsShortcutSymbols", storages = [Storage("windowsShortcutSymbols.xml")])
+@State(name = "WindowsKeyLabels", storages = [Storage("windowsKeyLabels.xml")])
 class WinSymbolsSettings : PersistentStateComponent<WinSymbolsSettings.Options> {
 
   class Options {

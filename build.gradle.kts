@@ -7,7 +7,7 @@ plugins {
     id("org.jetbrains.intellij.platform")
 }
 
-group = "com.adriansalajan.winsymbols"
+group = "io.github.adrian2414745.winkeylabels"
 version = "0.1.0"
 
 repositories {

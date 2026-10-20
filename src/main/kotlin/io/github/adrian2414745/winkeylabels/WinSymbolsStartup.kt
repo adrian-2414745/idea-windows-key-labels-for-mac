@@ -1,4 +1,4 @@
-package com.adriansalajan.winsymbols
+package io.github.adrian2414745.winkeylabels
 
 import com.intellij.ide.AppLifecycleListener
 import com.intellij.openapi.application.ApplicationActivationListener

@@ -1,18 +1,19 @@
 # AGENTS.md
 
-Read [README.md](README.md) first: what the plugin does, detection rules, how the `KeymapUtil` swap works, code map, build.
+- [README.md](README.md): what the plugin does, for users.
+- [agent-docs/architecture.md](agent-docs/architecture.md): folder structure, how it works, reasons for technical decisions.
+- [agent-docs/lessons-learned.md](agent-docs/lessons-learned.md): read before changing code; append when you fix a
+  non-obvious problem.
 
-Also read [agent-docs/lessons-learned.md](agent-docs/lessons-learned.md) and append to it when you fix a non-obvious problem.
+## Build and test
 
-## Notes for agents
+```sh
+./gradlew build buildPlugin -PplatformLocalPath="$HOME/Applications/IntelliJ IDEA.app"
+```
 
-- Build and test: `./gradlew build buildPlugin -PplatformLocalPath="$HOME/Applications/IntelliJ IDEA.app"`
-  (without `platformLocalPath` the IDE from `gradle.properties` is downloaded).
-- Compatibility: `sinceBuild = 252`, `jvmTarget = 21`, Kotlin `apiVersion = 2.2`. Code is compiled against 2026.2, so check
-  that platform APIs used also exist in 2025.2. Avoid platform `inline` Kotlin functions: 2026.2 ships them as JVM 25
-  bytecode, which cannot be inlined into JVM 21 code.
-- `KeymapTextContextInstaller` depends on platform internals (a private static field of `KeymapUtil`). If a platform
-  update breaks it, `WindowsKeymapTextContextTest` fails.
-- Shortcut text is computed on the EDT and often: `WindowsKeymapTextContext` and `WinSymbolsSettings.activeLabels()` must
-  not block or run processes. Detection runs in `KeyboardDetector` on `Dispatchers.IO`.
-- Test fixtures in `src/test/resources/fixtures/` are real command output; keep new fixtures real too.
+Without `platformLocalPath` the IDE version from `gradle.properties` is downloaded.
+
+## Rules
+
+- Keep test fixtures real command output.
+- Update `agent-docs/architecture.md` when a design decision changes.
